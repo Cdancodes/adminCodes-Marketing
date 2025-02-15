@@ -1,0 +1,214 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.side-navbar {
+  width: 250px;
+  height: 100vh;
+  background-color: gray;
+  position: fixed;
+}
+.side-navbar:hover{
+  background-color: beige;
+  transition-duration: 2s;
+}
+.contact-us {
+  margin-left: 50px;
+  color: #001524;
+  font-size: xx-large;
+}
+
+.btn-logout {
+  border-radius: 15px;
+  background-color: #669bbc;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 20px;
+  width: 100px;
+  height: 25px;
+  margin-left: 80px;
+ 
+}
+.tbody{
+  border: 1px solid lightgray;
+}
+
+.main-page {
+  margin-left: 300px;
+  padding: 20px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  margin: 0 auto;
+}
+
+.tr {
+  border: 2px solid lightgray;
+}
+
+.th1, .th2, .th3, .th4, .th5 {
+  padding: 10px;
+  text-align: center;
+
+
+}
+
+.th1 {
+  width: 100px;
+}
+
+.th2 {
+  width: 200px;
+  
+}
+
+.th3 {
+  width: 200px;
+}
+
+.th4 {
+  width: 300px;
+}
+
+.th5 {
+  width: 800px;
+}
+
+.td1, .td2, .td3, .td4, .td5 {
+  padding: 10px;
+}
+
+.td1 {
+  width: 100px;
+}
+
+.td2 {
+  width: 200px;
+}
+
+.td3 {
+  width: 200px;
+}
+
+.td4 {
+  width: 300px;
+}
+
+.td5 {
+  width: 800px;
+}
+
+
+@media (max-width: 1200px) {
+  .main-page {
+    margin-left: 250px; 
+  }
+  
+  .side-navbar {
+    width: 200px; 
+  }
+
+  .table {
+    width: 90vw; 
+  }
+
+  .th4, .td4 {
+    width: 70%; 
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column; 
+  }
+
+  .side-navbar {
+    width: 100%; 
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .main-page {
+    margin-left: 0; 
+  }
+
+  .table {
+    width: 100%; 
+  }
+
+  .th4, .td4 {
+    width: 100%; 
+  }
+}
+
+@media (max-width: 600px) {
+  .side-navbar {
+    width: 100%; 
+    height: auto;
+    position: relative;
+    padding: 10px;
+  }
+
+  .main-page {
+    margin-left: 0; 
+    padding: 10px;
+  }
+
+  .table {
+    width: 100%; 
+    font-size: 14px; 
+  }
+
+  .th1, .th2, .th3, .th4, .th5 {
+    font-size: 14px; 
+  }
+
+  .td1, .td2, .td3, .td4, .td5 {
+    font-size: 14px; 
+  }
+
+  .btn-logout {
+    margin-left: 10px; 
+    width: 80px; 
+  }
+} 
+
+
+.search-bar{
+  width: 300px;
+  height: 25px;
+  border-radius: 25px;
+  margin: 20px;
+  }
+  .side-navbar:hover{
+    background-color: beige;
+    transition-duration: 2s;
+  }
+  .tr:hover{
+    background-color: lightgray;
+  border: 1px solid gray;
+  }
+  .btn-showmore{
+    background-color: #cdb4db;
+    border-radius: 15px;
+
+  }
+  .paging-button{
+    background-color:#003049;
+    color: white;
+  }
+  .pagination{
+    text-align: center;
+    margin-top: 10px;
+  }
+  .testinomial{
+    margin-left: 70px;
+
+  }
