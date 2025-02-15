@@ -3,7 +3,7 @@ import './App.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from 'react-redux';
-import { setData, setSearchQuery, setCurrentPage } from '../redux/actions/actions';
+import { setData, setSearchQuery, setCurrentPage } from './redux/actions/actions';
 
 function App() {
   const URL = "http://147.93.98.197:3000/api/v1/enquiry/getAllenquiry";
@@ -131,8 +131,6 @@ function App() {
               );
             })}
           </tbody>
-
-
 
         </table>
 
