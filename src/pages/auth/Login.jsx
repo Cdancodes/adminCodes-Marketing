@@ -13,17 +13,18 @@ const Login = () => {
 
 
   const validationSchema = Yup.object({
-    name: Yup.string()
-      .min(3, "Name must be at least 3 characters")
-      .max(50, "Name can't exceed 50 characters")
-      .required("Name is required"),
-    phoneno: Yup.string()
-      .matches(/^\d+$/, "Only numbers are allowed")
-      .length(10, "Phone number must be exactly 10 digits")
-      .required("Phone number is required"),
-    email: Yup.string().email("Invalid email address").required("Email is required"),
-    message: Yup.string().min(10, "Message must be at least 10 characters").required("Message is required"),
-    agree: Yup.boolean().oneOf([true], "You must confirm the details"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .max(20, "Password must not exceed 20 characters")
+      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+      .matches(/\d/, "Password must contain at least one number")
+      .matches(/[@$!%*?&]/, "Password must contain at least one special character (@$!%*?&)")
+      .required("Password is required"),
   });
 
   const handleSubmit = (values, { resetForm }) => {
@@ -48,11 +49,7 @@ const Login = () => {
           <hr className="border border-b-2 border-greenColor my-5 " />
 
           <Formik
-            initialValues={{
-              email: "",
-              password: "",
-              agree: false
-            }}
+            initialValues={{ email: "", password: "" }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
           >
