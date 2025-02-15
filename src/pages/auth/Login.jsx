@@ -1,16 +1,16 @@
+
 import React, { useState } from "react";
-import { CgPhone } from "react-icons/cg";
-import { IoMdMail } from "react-icons/io";
-import { useDispatch } from 'react-redux';
+import Logo from '../../../public/assets/brand.png';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-  
+
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submittedName, setSubmittedName] = useState("");
+  // const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState(false);
+
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -31,51 +31,26 @@ const Login = () => {
   };
 
   return (
-    <div className="p-4 sm:p-4 md:p-8 lg:p-20 xl:p-[150px] mt-16 md:mt-0">
-      <div className="bg-white p-10 rounded-2xl shadow-lg mx-auto flex flex-col md:flex-row items-center gap-10">
-        <div className="flex-1 text-center md:text-left">
-          <h2 className="text-xl text-green-500 italic">Get In touch</h2>
-          <h1 className="text-3xl font-bold text-gray-800 mt-2 w-full">
-            Ready to bring your project <br /> ideas to life?
-          </h1>
-          <p className="text-gray-600 mt-4">
-            Reach out to us and let's discuss how we can help you with your next big venture! Whether it's building a website, developing a mobile app, or crafting a digital marketing strategy, our team is here to assist you every step of the way
-          </p>
-          <div className="mt-6 w-full">
-            <div className="flex items-start gap-4">
-              <div className="bg-green-100 p-2 rounded-full">
-                <CgPhone className="w-5 h-5" />
-              </div>
-              <div className="text-gray-700">
-                <p>For urgent help</p>
-                <div className="flex">
-                  <span className="font-semibold text-gray-900 mr-2">+91-9599876298</span>
-                  <span className="font-semibold text-gray-900">+91-6393377862</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 mt-4">
-              <div className="bg-blue-100 p-2 rounded-full">
-                <IoMdMail className="w-5 h-5" />
-              </div>
-              <p className="text-gray-700">
-                Mail us 24/7 <br />
-                <span className="font-semibold text-gray-900">
-                  codesandmarketing@gmail.com
-                </span>
-              </p>
-            </div>
-          </div>
-        </div>
 
-        <div className="flex-1 bg-gray-50 p-6 rounded-2xl shadow-md">
+    <section className="text-gray-600 bg-slate-50 h-[100vh] body-font  flex flex-col">
+      <div className="p-6">
+        <img src={Logo} atl="brand" className="w-40 h-16" />
+      </div>
+      <div className="container px-5 mx-auto flex flex-wrap items-center">
+
+        <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+          <h1 className="title-font font-medium text-3xl text-gray-900">Admin Panel</h1>
+          <p className="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
+        </div>
+        <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-xl p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+          <h2 className="text-gray-900 text-lg font-medium title-font">Login</h2>
+
+          <hr className="border border-b-2 border-greenColor my-5 " />
 
           <Formik
             initialValues={{
-              name: "",
-              phoneno: "",
               email: "",
-              message: "",
+              password: "",
               agree: false
             }}
             validationSchema={validationSchema}
@@ -83,25 +58,6 @@ const Login = () => {
           >
             {() => (
               <Form className="flex flex-col gap-4">
-                <div>
-                  <Field
-                    type="text"
-                    name="name"
-                    placeholder="Enter Your Name"
-                    className="p-2 border rounded w-full"
-                  />
-                  <ErrorMessage name="name" component="div" className="text-red-500 text-xs" />
-                </div>
-
-                <div>
-                  <Field
-                    type="text"
-                    name="phoneno"
-                    placeholder="Enter Your Contact Number"
-                    className="p-2 border rounded w-full"
-                  />
-                  <ErrorMessage name="phoneno" component="div" className="text-red-500 text-xs" />
-                </div>
 
                 <div>
                   <Field
@@ -113,38 +69,35 @@ const Login = () => {
                   <ErrorMessage name="email" component="div" className="text-red-500 text-xs" />
                 </div>
 
-                <div>
+                <div className="relative">
                   <Field
-                    as="textarea"
-                    name="message"
-                    placeholder="How can we help you?"
-                    rows="4"
-                    className="p-2 border rounded w-full"
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Enter Your Password"
+                    className="p-2 border rounded w-full pr-10"
                   />
-                  <ErrorMessage name="message" component="div" className="text-red-500 text-xs" />
-                </div>
-
-                <div>
-                  <div className="w-full flex items-center space-x-2">
-                    <Field type="checkbox" name="agree" className="w-4 h-4" />
-                    <span>I confirm that the above details are correct.</span>
-                  </div>
-                  <ErrorMessage name="agree" component="div" className="text-red-500 text-xs" />
+                  <span
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash className="text-gray-500" /> : <FaEye className="text-gray-500" />}
+                  </span>
+                  <ErrorMessage name="password" component="div" className="text-red-500 text-xs mt-1" />
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-4 py-3 px-6 bg-greenColor text-customBodyColor rounded-lg shadow-lg hover:shadow-xl focus:ring-4 focus:ring-green-300"
+                  className="mt-4 py-3 px-6 bg-greenColor text-customBodyColor rounded-xl shadow-lg hover:shadow-xl focus:ring-4 focus:ring-green-300 text-xs"
                 >
                   Submit Now
                 </button>
               </Form>
             )}
           </Formik>
-
+          <p className="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
